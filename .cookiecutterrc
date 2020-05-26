@@ -1,0 +1,34 @@
+# This file exists so you can easily regenerate your project.
+#
+# `cookiepatcher` is a convenient shim around `cookiecutter`
+# for regenerating projects (it will generate a .cookiecutterrc
+# automatically for any template). To use it:
+#
+#    pip install cookiepatcher
+#    cookiepatcher gh:mateuspontes/cookiecutter-poetry project-path
+#
+# See:
+#    https://pypi.org/project/cookiepatcher
+#
+# Alternatively, you can run:
+#
+#    cookiecutter --overwrite-if-exists --config-file=project-path/.cookiecutterrc gh:ionelmc/cookiecutter-pylibrary
+
+default_context:
+
+    _template:                 'https://github.com/mateuspontesm/cookiecutter-poetry.git'
+    command_line_interface:    'none'
+    create_author_file:        'y'
+    create_docs:               'y'
+    email:                     'mateuspontesm@outlook.com'
+    full_name:                 'Mateus Mota'
+    github_username:           'mateuspontesm'
+    module_name:               'rl_agents'
+    open_source_license:       "BSD 3-Clause 'New' or 'Revised' License"
+    project_name:              'RL-Agents'
+    project_short_description: 'Implementation of various reinforcement learning methods.'
+    project_slug:              'rl-agents'
+    pypi_username:             'mateuspontesm'
+    use_pycharm:               'n'
+    use_pypi_deployment_with_travis: 'y'
+    version:                   '0.1.0'
