@@ -13,9 +13,6 @@ RL-Agents
 .. image:: https://readthedocs.org/projects/rl-agents/badge/?version=latest
         :target: https://rl-agents.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
-        
-.. image:: https://coveralls.io/repos/github/mateuspontesm/rl-agents/badge.svg?branch=master
-        :target: https://coveralls.io/github/mateuspontesm/rl-agents?branch=master
 
 .. image:: https://coveralls.io/repos/mateuspontesm/rl-agents/badge.svg?branch=master&service=github
         :alt: Coverage Status
