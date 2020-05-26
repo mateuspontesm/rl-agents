@@ -8,10 +8,27 @@ RL-Agents
 
 .. image:: https://img.shields.io/travis/mateuspontesm/rl-agents.svg
         :target: https://travis-ci.org/mateuspontesm/rl-agents
+        :alt: Travis-CI Build Status
 
 .. image:: https://readthedocs.org/projects/rl-agents/badge/?version=latest
         :target: https://rl-agents.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
+
+.. image:: https://coveralls.io/repos/mateuspontesm/rl-agents/badge.svg?branch=master&service=github
+        :alt: Coverage Status
+        :target: https://coveralls.io/r/mateuspontesm/rl-agents
+
+.. image:: https://codecov.io/gh/mateuspontesm/rl-agents/branch/master/graphs/badge.svg?branch=master
+        :alt: Coverage Status
+        :target: https://codecov.io/github/mateuspontesm/rl-agents
+
+.. image:: https://img.shields.io/scrutinizer/quality/g/mateuspontesm/rl-agents/master.svg
+        :alt: Scrutinizer Status
+        :target: https://scrutinizer-ci.com/g/mateuspontesm/rl-agents/
+
+.. image:: https://codeclimate.com/github/mateuspontesm/rl-agents/badges/gpa.svg
+   :target: https://codeclimate.com/github/mateuspontesm/rl-agents
+   :alt: CodeClimate Quality Status
 
 
 Implementation of various reinforcement learning methods.

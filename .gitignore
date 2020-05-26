@@ -368,6 +368,8 @@ Sessionx.vim
 .netrwhist
 # Auto-generated tag files
 tags
+.tags
+.tags1
 # Persistent undo
 [._]*.un~
 
