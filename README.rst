@@ -6,8 +6,8 @@ RL-Agents
 .. image:: https://img.shields.io/pypi/v/rl-agents.svg
         :target: https://pypi.python.org/pypi/rl-agents
 
-.. image:: https://img.shields.io/travis/mateuspontesm/rl-agents.svg
-        :target: https://travis-ci.org/mateuspontesm/rl-agents
+.. image:: https://travis-ci.org/mateuspontesm/rl-agents.svg?branch=master
+    :target: https://travis-ci.org/mateuspontesm/rl-agents
         :alt: Travis-CI Build Status
 
 .. image:: https://readthedocs.org/projects/rl-agents/badge/?version=latest
