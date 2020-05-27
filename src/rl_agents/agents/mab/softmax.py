@@ -1,9 +1,9 @@
 import numpy as np
 
-from .base import MAB
+from rl_agents.agents.mab.base import BaseMAB
 
 
-class Softmax(MAB):
+class Softmax(BaseMAB):
     """Short summary.
 
     Parameters

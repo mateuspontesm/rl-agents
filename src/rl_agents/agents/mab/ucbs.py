@@ -1,9 +1,9 @@
 import numpy as np
 
-from .base import MAB
+from rl_agents.agents.mab.base import BaseMAB
 
 
-class UCB(MAB):
+class UCB(BaseMAB):
     r"""MAB Agent following a Upper Confidence Bound policy.
 
     The UCB selects the action that maximizes the function given by:
@@ -81,7 +81,7 @@ class UCB(MAB):
         return np.argmax(self.means + self.bounds)
 
 
-class UCB1(MAB):
+class UCB1(BaseMAB):
     """Short summary.
 
     Parameters
@@ -151,7 +151,7 @@ class UCB1(MAB):
         return np.argmax(self.means + self.bounds)
 
 
-class UCB2(MAB):
+class UCB2(BaseMAB):
     """Short summary.
 
     Parameters

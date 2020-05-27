@@ -1,9 +1,9 @@
 import numpy as np
 
-from .base import MAB
+from rl_agents.agents.mab.base import BaseMAB
 
 
-class Pursuit(MAB):
+class Pursuit(BaseMAB):
     """Short summary.
 
     Parameters

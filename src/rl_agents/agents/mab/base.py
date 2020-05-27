@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class MAB(ABC):
+class BaseMAB(ABC):
     """
     A basic Multi-Armed Bandit agent.
 

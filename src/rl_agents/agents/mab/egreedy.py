@@ -1,9 +1,9 @@
 import numpy as np
 
-from .base import MAB
+from rl_agents.agents.mabs import BaseMAB
 
 
-class EpsilonGreedy(MAB):
+class EpsilonGreedy(BaseMAB):
     r"""Epsilon-Greedy agent.
 
     The agent uses the epsilon-greedy approach to solve the Multi-Armed
@@ -74,7 +74,7 @@ class EpsilonGreedy(MAB):
         return a
 
 
-class DecayEpsilon(MAB):
+class DecayEpsilon(BaseMAB):
     r"""Agent that follows an epsilon-decreasing policy.
 
     The agent uses the epsilon-greedy approach to solve the Multi-Armed
