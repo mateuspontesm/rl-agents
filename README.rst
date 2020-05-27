@@ -29,7 +29,9 @@ RL-Agents
 .. image:: https://codeclimate.com/github/mateuspontesm/rl-agents/badges/gpa.svg
    :target: https://codeclimate.com/github/mateuspontesm/rl-agents
    :alt: CodeClimate Quality Status
-
+   
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github.com/ambv/black
 
 Implementation of various reinforcement learning methods.
 
