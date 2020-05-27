@@ -1,6 +1,6 @@
 import numpy as np
 
-from rl_agents.agents.mabs import BaseMAB
+from rl_agents.agents.mabs.base import BaseMAB
 
 
 class EpsilonGreedy(BaseMAB):
@@ -145,8 +145,8 @@ class DecayEpsilon(BaseMAB):
 
         """
         if np.random.rand() < self.epsilon:
-            a = np.random.randint(low=0, high=self.n_arms)
+            a_idx = np.random.randint(low=0, high=self.n_arms)
         else:
-            a = self.means.argmax()
+            a_idx = self.means.argmax()
         self.epsilon = self.epsilon * self.decay
-        return a
+        return a_idx
