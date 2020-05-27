@@ -1,1 +1,1 @@
-from k_armed import BanditKArmedGaussianEnv  # noqa: F401
+from rl_agents.envs.k_armed import BanditKArmedGaussianEnv  # noqa: F401
