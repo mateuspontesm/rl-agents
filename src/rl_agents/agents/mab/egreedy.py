@@ -37,10 +37,11 @@ class EpsilonGreedy(BaseMAB):
         self.trials = np.zeros(self.n_arms)
 
     def learn(self, a_idx, reward):
-        """Learn from the interaction.
+        """Make `EpsilonGreedy` agent learn from the interaction.
 
-        The MAB agent learns from its previous choice and the reward received
-        from this action. Updates the means and the trials.
+        The `EpsilonGreedy` agent learns from its previous choice
+        and the reward received from this action.
+        Updates the means and the trials.
 
         Parameters
         ----------
@@ -115,7 +116,7 @@ class DecayEpsilon(BaseMAB):
         self.decay = decay
 
     def learn(self, a_idx, reward):
-        """Learn from the interaction.
+        """Make the `DecayEpsilon` agent learn from the interaction.
 
         The MAB agent learns from its previous choice and the reward received
         from this action. Updates the means and the trials.
