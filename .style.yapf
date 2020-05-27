@@ -18,3 +18,4 @@ based_on_style = pep8
 #        'key2': 'value2',
 #    })
 coalesce_brackets=True
+blank_line_before_nested_class_or_def = true
