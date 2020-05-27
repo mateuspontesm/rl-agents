@@ -1,6 +1,6 @@
 import numpy as np
 
-from rl_agents.agents.mabs.base import BaseMAB
+from rl_agents.agents.mab.base import BaseMAB
 
 
 class EpsilonGreedy(BaseMAB):
