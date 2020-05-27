@@ -61,6 +61,12 @@ sphinx_rtd_theme = "^0.4.3"
 known_first_party = 'rl_agents'
 known_third_party = ["gym", "numpy", "pytest"]
 skip= 'docs/source/conf.py'
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 79
+
 
 [tool.black]
 line-length = 79
