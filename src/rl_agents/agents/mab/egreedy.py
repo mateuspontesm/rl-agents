@@ -29,6 +29,7 @@ class EpsilonGreedy(BaseMAB):
         Vector containing the number of trials made to each arm.
 
     """
+
     def __init__(self, n_arms, epsilon):
         self.epsilon = epsilon
         self.n_arms = n_arms
@@ -50,8 +51,8 @@ class EpsilonGreedy(BaseMAB):
 
         """
         self.means[a_idx] = (
-            (self.means[a_idx] * self.trials[a_idx] + reward) /
-            (self.trials[a_idx] + 1))
+            self.means[a_idx] * self.trials[a_idx] + reward
+        ) / (self.trials[a_idx] + 1)
         self.trials[a_idx] += 1  # add trial
 
     def predict(self):
@@ -105,6 +106,7 @@ class DecayEpsilon(BaseMAB):
         Vector containing the number of trials made to each arm.
 
     """
+
     def __init__(self, n_arms, max_epsilon, decay):
         self.epsilon = max_epsilon
         self.n_arms = n_arms
@@ -127,8 +129,8 @@ class DecayEpsilon(BaseMAB):
 
         """
         self.means[a_idx] = (
-            (self.means[a_idx] * self.trials[a_idx] + reward) /
-            (self.trials[a_idx] + 1))
+            self.means[a_idx] * self.trials[a_idx] + reward
+        ) / (self.trials[a_idx] + 1)
         self.trials[a_idx] += 1  # add trial
 
     def predict(self):

@@ -25,6 +25,7 @@ class Pursuit(BaseMAB):
     beta
 
     """
+
     def __init__(self, n_arms, beta):
         self.n_arms = n_arms
         self.means = np.zeros(self.n_arms)
@@ -48,9 +49,9 @@ class Pursuit(BaseMAB):
             Description of returned object.
 
         """
-        self.means[a_idx] = ((
-            (self.means[a_idx] * self.trials[a_idx]) + reward) /
-                             (self.trials[a_idx] + 1))
+        self.means[a_idx] = (
+            (self.means[a_idx] * self.trials[a_idx]) + reward
+        ) / (self.trials[a_idx] + 1)
         self.trials[a_idx] += 1  # add trial
         ii = np.argmax(self.means)
         p_ii = self.p_arms[ii]

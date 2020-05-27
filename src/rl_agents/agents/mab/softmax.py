@@ -25,6 +25,7 @@ class Softmax(BaseMAB):
     temperature
 
     """
+
     def __init__(self, n_arms, temperature):
         self.n_arms = n_arms
         self.means = np.zeros(self.n_arms)
@@ -48,9 +49,9 @@ class Softmax(BaseMAB):
             Description of returned object.
 
         """
-        self.means[a_idx] = ((
-            (self.means[a_idx] * self.trials[a_idx]) + reward) /
-                             (self.trials[a_idx] + 1))
+        self.means[a_idx] = (
+            (self.means[a_idx] * self.trials[a_idx]) + reward
+        ) / (self.trials[a_idx] + 1)
         self.trials[a_idx] += 1  # add trial
 
     def predict(self):

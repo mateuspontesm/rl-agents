@@ -36,6 +36,7 @@ class UCB(BaseMAB):
         Total trial counter.
 
     """
+
     def __init__(self, n_arms, p):
         self.p = p
         self.n_arms = n_arms
@@ -57,9 +58,9 @@ class UCB(BaseMAB):
             Index of the arm pulled (action taken).
 
         """
-        self.means[a_idx] = ((
-            (self.means[a_idx] * self.trials[a_idx]) + reward) /
-                             (self.trials[a_idx] + 1))
+        self.means[a_idx] = (
+            (self.means[a_idx] * self.trials[a_idx]) + reward
+        ) / (self.trials[a_idx] + 1)
         self.trials[a_idx] += 1  # add trial
         self.bounds[a_idx] = np.sqrt(-np.log(self.p) / 2 * self.trials[a_idx])
         self.t += 1
@@ -105,6 +106,7 @@ class UCB1(BaseMAB):
     c
 
     """
+
     def __init__(self, n_arms, c=4):
         self.n_arms = n_arms
         self.means = np.zeros(self.n_arms)
@@ -129,13 +131,14 @@ class UCB1(BaseMAB):
             Description of returned object.
 
         """
-        self.means[a_idx] = ((
-            (self.means[a_idx] * self.trials[a_idx]) + reward) /
-                             (self.trials[a_idx] + 1))
+        self.means[a_idx] = (
+            (self.means[a_idx] * self.trials[a_idx]) + reward
+        ) / (self.trials[a_idx] + 1)
         self.trials[a_idx] += 1  # add trial
         self.t += 1
-        self.bounds[a_idx] = self.c * \
-            np.sqrt(np.log(self.t) / (self.trials[a_idx]))
+        self.bounds[a_idx] = self.c * np.sqrt(
+            np.log(self.t) / (self.trials[a_idx])
+        )
 
     def predict(self):
         """Short summary.
@@ -181,6 +184,7 @@ class UCB2(BaseMAB):
     alpha
 
     """
+
     def __init__(self, n_arms, alpha):
         self.n_arms = n_arms
         self.means = np.zeros(self.n_arms)
@@ -208,14 +212,15 @@ class UCB2(BaseMAB):
             Description of returned object.
 
         """
-        self.means[a_idx] = ((
-            (self.means[a_idx] * self.trials[a_idx]) + reward) /
-                             (self.trials[a_idx] + 1))
+        self.means[a_idx] = (
+            (self.means[a_idx] * self.trials[a_idx]) + reward
+        ) / (self.trials[a_idx] + 1)
         self.trials[a_idx] += 1  # add trial
         self.t += 1
         tau = self._tau(self.rj[a_idx])
         self.bounds[a_idx] = np.sqrt(
-            (1 + self.alpha) * np.log(np.e * self.t / tau) / (2 * tau))
+            (1 + self.alpha) * np.log(np.e * self.t / tau) / (2 * tau)
+        )
         self.counter = self._tau(self.rj[a_idx] + 1) - tau
         self.rj[a_idx] += 1
 
@@ -239,4 +244,4 @@ class UCB2(BaseMAB):
             return self.current
 
     def _tau(self, rj):
-        return np.ceil((1 + self.alpha)**rj)
+        return np.ceil((1 + self.alpha) ** rj)
