@@ -8,12 +8,12 @@ class UCB(BaseMAB):
 
     The UCB selects the action that maximizes the function given by:
 
-    .. math:: f(i) = \\mu_i + U_i,
+    .. math:: f(i) = \mu_i + U_i,
 
-    where  :math:`\\mu_i` is the average reward of arm :math:`i`, and
+    where  :math:`\mu_i` is the average reward of arm :math:`i`, and
     :math:`U_i` is given by:
 
-    .. math:: U_i = \\sqrt{\\frac{-\\log{p}}{2 N_i} },
+    .. math:: U_i = \sqrt{\frac{-\log{p}}{2 N_i} },
 
     where :math:`N_i` is the number of pulls made to arm  :math:`i`.
 
