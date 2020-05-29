@@ -8,10 +8,10 @@ Welcome to RL-Agents's documentation!
    readme
    installation
    usage
-   modules
    contributing
    authors
    history
+   modules
 
 Indices and tables
 ==================
