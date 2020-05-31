@@ -7,9 +7,13 @@ from gym.utils import seeding
 class BanditEnv(gym.Env):
     """
     Bandit environment base
-    arms:
+
+    Attributes
+    ----------
+    arms: int
         Number of arms
     """
+
     def __init__(self, arms: int):
         self.arms = arms
         self.action_space = spaces.Discrete(self.arms)
@@ -23,13 +27,13 @@ class BanditEnv(gym.Env):
         return [seed]
 
     def reset(self):
-        pass
+        raise NotImplementedError
 
     def step(self, action: int):
-        pass
+        raise NotImplementedError
 
-    def render(self, mode='human', close=False):
-        pass
+    def render(self, mode="human", close=False):
+        raise NotImplementedError
 
 
 class BanditKArmedGaussianEnv(BanditEnv):
@@ -44,6 +48,7 @@ class BanditKArmedGaussianEnv(BanditEnv):
     Mean of payout is pulled from a normal distribution (0, 1) (called q*(a))
     Actual reward is drawn from a normal distribution (q*(a), 1)
     """
+
     def __init__(self, arms=10):
         self.means = []
         BanditEnv.__init__(self, arms)
@@ -58,7 +63,7 @@ class BanditKArmedGaussianEnv(BanditEnv):
         assert self.action_space.contains(action)
         reward = self.np_random.normal(self.means[action], 1)
         info = {
-            'Optimal': action == self.best_arm,
-            'Regret': self.means[self.best_arm] - self.means[action]
+            "Optimal": action == self.best_arm,
+            "Regret": self.means[self.best_arm] - self.means[action],
         }
         return 0, reward, False, info
