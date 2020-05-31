@@ -2,9 +2,6 @@ Agents Module
 =======================
 Module containing the different categories of agents.
 
-Module contents
----------------
-
 .. automodule:: rl_agents.agents
     :members:
     :undoc-members:
@@ -16,7 +13,6 @@ MAB Submodule
     :members:
     :undoc-members:
     :show-inheritance:
-
 
 .. automodule:: rl_agents.agents.mab.egreedy
     :members:
@@ -34,6 +30,14 @@ MAB Submodule
     :show-inheritance:
 
 .. automodule:: rl_agents.agents.mab.pursuit
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Policy Submodule
+----------------
+
+.. automodule:: rl_agents.agents.policies.tabular_policies
     :members:
     :undoc-members:
     :show-inheritance:
