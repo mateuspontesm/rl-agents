@@ -51,7 +51,8 @@ class EGreedyPolicy(BasePolicy):
         Parameters
         ----------
         epsilon : float
-            Epsilon parameter to control the exploration-exploitation trade-off.
+            Epsilon parameter to control the
+            exploration-exploitation trade-off.
 
 
         """
@@ -146,7 +147,8 @@ class BoltzmanPolicy(BasePolicy):
     Attributes
     ----------
     temperature : float
-        Temperature parameter to control the exploration-exploitation trade-off.
+        Temperature parameter to control the
+        exploration-exploitation trade-off.
 
     """
 
