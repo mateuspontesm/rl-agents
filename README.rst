@@ -7,7 +7,7 @@ RL-Agents
         :target: https://pypi.python.org/pypi/rl-agents
 
 .. image:: https://travis-ci.org/mateuspontesm/rl-agents.svg?branch=master
-    :target: https://travis-ci.org/mateuspontesm/rl-agents
+        :target: https://travis-ci.org/mateuspontesm/rl-agents
         :alt: Travis-CI Build Status
 
 .. image:: https://readthedocs.org/projects/rl-agents/badge/?version=latest
@@ -27,11 +27,11 @@ RL-Agents
         :target: https://scrutinizer-ci.com/g/mateuspontesm/rl-agents/
 
 .. image:: https://codeclimate.com/github/mateuspontesm/rl-agents/badges/gpa.svg
-   :target: https://codeclimate.com/github/mateuspontesm/rl-agents
-   :alt: CodeClimate Quality Status
-   
+        :target: https://codeclimate.com/github/mateuspontesm/rl-agents
+        :alt: CodeClimate Quality Status
+
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
-    :target: https://github.com/ambv/black
+        :target: https://github.com/ambv/black
 
 Implementation of various reinforcement learning methods.
 
