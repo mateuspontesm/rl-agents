@@ -39,5 +39,6 @@ Policy Submodule
 
 .. automodule:: rl_agents.agents.policies.tabular_policies
     :members:
+    :special-members: __call__
     :undoc-members:
     :show-inheritance:

@@ -17,6 +17,11 @@ class BasePolicy(ABC):
 
         This method returns the action selected by the current policy
 
+        Parameters
+        ----------
+        q_values : numpy.ndarray(float, ndim=1)
+            Q-value of each action.
+
         Returns
         -------
         int
@@ -26,7 +31,23 @@ class BasePolicy(ABC):
 
     @abstractmethod
     def update(self):
-        """Updates the policy.
+        """Update the policy.
+
+        """
+
+    @abstractmethod
+    def get_values(self, q_values):
+        """Return the probabilities associated with each action.
+
+        Parameters
+        ----------
+        q_values : numpy.ndarray(float, ndim=1)
+            Q-value of each action.
+
+        Returns
+        -------
+        numpy.ndarray(float, ndim=1)
+            Probabilities associated with each action.
 
         """
 
@@ -41,7 +62,8 @@ class EGreedyPolicy(BasePolicy):
 
     Attributes
     ----------
-    epsilon
+    epsilon : float
+        Exploration-exploitation parameter.
 
     """
 
@@ -56,6 +78,7 @@ class EGreedyPolicy(BasePolicy):
 
 
         """
+        # Check for valid values:
         if (epsilon >= 1) or (epsilon <= 0):
             raise ValueError("Invalid value for epsilon, 0 <= epsilon <= 1")
         self.epsilon = epsilon
@@ -76,8 +99,10 @@ class EGreedyPolicy(BasePolicy):
             Chosen action index
 
         """
+        # Explorarion case:
         if np.random.rand() < self.epsilon:
             a_idx = np.random.randint(low=0, high=q_values.size)
+        # Exploitation case:
         else:
             a_idx = np.argmax(q_values)
         return a_idx
@@ -85,8 +110,15 @@ class EGreedyPolicy(BasePolicy):
     def update(self):
         pass
 
+    def get_values(self, q_values):
+        # Probababilites of exploration:
+        output = np.ones(q_values.size) * self.epsilon / q_values.size
+        # Add the exploitation probability:
+        output[q_values.argmax()] += 1 - self.epsilon
+        return output
 
-class EDecreasePolicy(BasePolicy):
+
+class EDecreasePolicy(EGreedyPolicy):
     """Decreasing epsilon-greedy policy for tabular agents.
 
     Parameters
@@ -96,36 +128,17 @@ class EDecreasePolicy(BasePolicy):
 
     Attributes
     ----------
-    epsilon
+    epsilon : float
+        Exploration-exploitation parameter
 
     """
 
     def __init__(self, epsilon, epsilon_min, decay):
-        self.epsilon = epsilon
+        super().__init__(self, epsilon)
         self.epsilon_min = epsilon_min
         self.decay = decay
 
-    def __call__(self, q_values):
-        r"""Select an action based on the :math:`\epsilon`-greedy policy.
-
-
-        Parameters
-        ----------
-        q_values : numpy.ndarray(float, ndim=1)
-            Line from the Q-Table, corresponding to Q-values
-            for the chosen state.
-
-        Returns
-        -------
-        int
-            Chosen action index
-
-        """
-        if np.random.rand() < self.epsilon:
-            a_idx = np.random.randint(low=0, high=q_values.size)
-        else:
-            a_idx = np.argmax(q_values)
-        return a_idx
+    # The call method is the same as the epsilon-greedy
 
     def update(self):
         if self.epsilon > self.epsilon_min:
@@ -133,6 +146,8 @@ class EDecreasePolicy(BasePolicy):
                 self.epsilon = self.epsilon * self.decay
             else:
                 self.epsilon = self.epsilon_min
+
+    # The get_values method is the same as the epsilon-greedy
 
 
 class BoltzmanPolicy(BasePolicy):
@@ -163,7 +178,8 @@ class BoltzmanPolicy(BasePolicy):
 
 
         """
-        if temperature >= 0:
+        # Check for valid values:
+        if temperature < 0:
             raise ValueError("Invalid temperature value, T >= 0")
         self.temperature = temperature
 
@@ -188,9 +204,16 @@ class BoltzmanPolicy(BasePolicy):
             Chosen action index
 
         """
+        # Exponential:
         e_x = np.exp(q_values / self.temperature)
+        # Probabilities
         p_arms = e_x / e_x.sum()
         return np.random.choice(range(q_values.size), p=p_arms)
 
     def update(self):
         pass
+
+    def get_values(self, q_values):
+        e_x = np.exp(q_values / self.temperature)
+        p_arms = e_x / e_x.sum()
+        return p_arms
