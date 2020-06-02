@@ -1,4 +1,4 @@
-import numpy as np
+# import numpy as np
 
 from rl_agents.agents.mab import (
     UCB,
