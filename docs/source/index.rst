@@ -11,7 +11,17 @@ Welcome to RL-Agents's documentation!
    contributing
    authors
    history
-   modules
+
+.. toctree::
+   :maxdepth: 4
+   :caption: API:
+
+   agents
+   envs
+   runners
+
+
+
 
 Indices and tables
 ==================

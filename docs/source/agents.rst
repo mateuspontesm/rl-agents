@@ -6,6 +6,7 @@ Module containing the different categories of agents.
     :members:
     :undoc-members:
     :show-inheritance:
+    :inherited-members:
 
 MAB Submodule
 --------------
@@ -14,31 +15,22 @@ MAB Submodule
     :undoc-members:
     :show-inheritance:
 
-.. automodule:: rl_agents.agents.mab.egreedy
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: rl_agents.agents.mab.ucbs
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: rl_agents.agents.mab.softmax
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: rl_agents.agents.mab.pursuit
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 Policy Submodule
 ----------------
 
-.. automodule:: rl_agents.agents.policies.tabular_policies
+.. automodule:: rl_agents.agents.policies
     :members:
     :special-members: __call__
     :undoc-members:
     :show-inheritance:
+    :inherited-members:
+
+Functions Submodule
+-------------------
+
+.. automodule:: rl_agents.agents.functions
+    :members:
+    :special-members: __call__
+    :undoc-members:
+    :show-inheritance:
+    :inherited-members:

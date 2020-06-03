@@ -2,21 +2,25 @@ import numpy as np
 
 
 def simple_mab_runner(env, agent, n_trials):
-    """Short summary.
+    """Run a simple MAB experiment.
 
     Parameters
     ----------
-    env : type
-        Description of parameter `env`.
-    agent : type
-        Description of parameter `agent`.
-    n_trials : type
-        Description of parameter `n_trials`.
+    env : gym.Env
+        Environment.
+    agent : rl_agents.agents.mab.BaseMAB
+        MAB agent.
+    n_trials : int
+        Number of trials until the experiment ends.
 
     Returns
     -------
-    type
-        Description of returned object.
+    rewards : numpy.ndarray(float, ndims=1)
+        Vector with the observed rewards.
+    regrets : numpy.ndarray(float, ndims=1)
+        Vector with the regret of each trial.
+    optimal : numpy.ndarray(float, ndims=1)
+        Vector containing the percentage of optimal actions taken.
 
     """
     _ = env.reset()
