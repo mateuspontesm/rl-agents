@@ -61,7 +61,7 @@ sphinx_rtd_theme = "^0.4.3"
 
 [tool.isort]
 known_first_party = 'rl_agents'
-known_third_party = ["gym", "numpy", "pytest"]
+known_third_party = ["gym", "numpy", "pytest", "tqdm"]
 skip= 'docs/source/conf.py'
 skip_glob = '*__init__.py'
 multi_line_output = 3
