@@ -125,16 +125,20 @@ class EDecreasePolicy(EGreedyPolicy):
     ----------
     epsilon : float
         Epsilon parameter to control the exploration-exploitation trade-off.
+    epsilon_min : float
+        Minimum epsilon acceptable
+    decay : float
+        Decay for epsilon: epsilon <- epsilon * decay
 
     Attributes
     ----------
-    epsilon : float
-        Exploration-exploitation parameter
+    epsilon_min : float
+    decay : float
 
     """
 
     def __init__(self, epsilon, epsilon_min, decay):
-        super().__init__(self, epsilon)
+        super().__init__(epsilon)
         self.epsilon_min = epsilon_min
         self.decay = decay
 
@@ -187,10 +191,8 @@ class BoltzmanPolicy(BasePolicy):
         r"""Select an action based on the Boltzman policy.
 
         .. math::
-            \begin{equation}
             \pi\left(s, a\right) = \frac{e^{Q\left(s, a\right) / T}}
                                    {\sum_{i=1}^{m} e^{Q\left(s, a_i\right)/ T}}
-            \end{equation}
 
         Parameters
         ----------
