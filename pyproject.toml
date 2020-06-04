@@ -59,6 +59,11 @@ sphinx_rtd_theme = "^0.4.3"
 # CLI:
 
 
+jupyter = "^1.0.0"
+ipykernel = "^5.3.0"
+jupyterlab = "^2.1.4"
+matplotlib = "^3.2.1"
+seaborn = "^0.10.1"
 [tool.isort]
 known_first_party = 'rl_agents'
 known_third_party = ["gym", "numpy", "pytest", "tqdm"]
