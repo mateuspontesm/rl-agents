@@ -7,13 +7,15 @@ class BaseAgent(ABC):
     """
 
     @abstractmethod
-    def predict(self, state):
+    def predict(self, state, eval=False):
         """Predict the next action the agent should take.
 
         Parameters
         ----------
         state : type
             State information
+        eval : bool
+            Flag to indicate if the agent is in a test setting (evaluation)
 
         Returns
         -------

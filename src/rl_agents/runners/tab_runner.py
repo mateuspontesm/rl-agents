@@ -21,11 +21,11 @@ def simple_tab_runner(env, agent, n_episodes):
 
     """
     rewards = np.zeros(n_episodes)
-    done = False
     for ii in tqdm(range(n_episodes)):
         # Run episode:
-        obs = env.reset()
+        done = False
         episode_reward = 0
+        obs = env.reset()
         while not done:
             action = agent.predict(obs)
             next_obs, reward, done, info = env.step(action)
