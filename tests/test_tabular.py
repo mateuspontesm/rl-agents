@@ -126,3 +126,21 @@ def test_functions_errors():
         QMatrixFunction(2, 2, "blabla")
     with pytest.raises(ValueError):
         QTableFunction(2, 2, "blablo")
+
+
+def test_functions():
+    # Test Initialization:
+    q_func0 = QMatrixFunction(2, 2, "zeros")
+    q_func1 = QMatrixFunction(2, 2, "ones")
+    q_funcR = QMatrixFunction(2, 2, "random")
+    assert q_func0(0, 0) == 0
+    assert q_func1(0, 0) == 1
+    assert q_funcR(0, 0) != q_funcR(0, 1)
+    # Test update:
+    q_value = 5.5
+    q_func0.update(0, 0, q_value)
+    q_func1.update(0, 0, q_value)
+    q_funcR.update(0, 0, q_value)
+    assert q_func0(0, 0) == 5.5
+    assert q_func1(0, 0) == 5.5
+    assert q_funcR(0, 0) == 5.5
