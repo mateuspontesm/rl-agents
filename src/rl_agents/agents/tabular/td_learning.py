@@ -59,9 +59,7 @@ class TDAgent(BaseAgent):
         self.n_actions = n_actions
         self.policy = policy
         q_func_kwargs = {} if q_func_kwargs is None else q_func_kwargs.copy()
-        self.q_function = q_function(
-            self.n_states, self.n_actions, **q_func_kwargs
-        )
+        self.q_function = q_function(self.n_states, self.n_actions, **q_func_kwargs)
         self.alpha = alpha
         self.gamma = gamma
 
@@ -116,9 +114,7 @@ class TDAgent(BaseAgent):
 
         """
         # TD update Q(s,a) <- (1-alpha)Q(s,a) + alpha(r + gamma F(s))
-        update = self.alpha * (
-            reward + self.gamma * self._next_value(next_state)
-        )
+        update = self.alpha * (reward + self.gamma * self._next_value(next_state))
         target_q = (1 - self.alpha) * self.q_function(state, action) + update
         # Update the Q-Function with the target:
         self.q_function.update(state, action, target_q)
@@ -153,13 +149,7 @@ class QLearningAgent(TDAgent):
     ):
 
         super().__init__(
-            n_states,
-            n_actions,
-            alpha,
-            gamma,
-            policy,
-            q_function,
-            q_func_kwargs,
+            n_states, n_actions, alpha, gamma, policy, q_function, q_func_kwargs,
         )
 
     def _next_value(self, next_state):
@@ -195,18 +185,42 @@ class SarsaAgent(TDAgent):
     ):
 
         super().__init__(
-            n_states,
-            n_actions,
-            alpha,
-            gamma,
-            policy,
-            q_function,
-            q_func_kwargs,
+            n_states, n_actions, alpha, gamma, policy, q_function, q_func_kwargs,
         )
+        self.next_action = None
+
+    def predict(self, state, eval=False):
+        """Predict the next action the SARSA agent should take.
+
+        Parameters
+        ----------
+        state : int
+            Index of the state.
+        eval : bool
+            Flag to indicate if the agent is in a test setting (evaluation)
+
+        Returns
+        -------
+        int
+            Action index to be taken.
+
+        """
+        # Get the Q-Values associated with that state:
+        q_values = self.q_function.get_values(state)
+        # Utilize the policy:
+        if eval:
+            action = np.argmax(q_values)
+        else:
+            if self.next_action == None:
+                action = self.policy(q_values)
+            else:
+                action = self.next_action
+        return action
 
     def _next_value(self, next_state):
         q_values = self.q_function.get_values(next_state)
         action = self.policy(q_values)
+        self.next_action = action
         return self.q_function(next_state, action)
 
 
@@ -236,13 +250,7 @@ class ExpectedSarsaAgent(TDAgent):
     ):
 
         super().__init__(
-            n_states,
-            n_actions,
-            alpha,
-            gamma,
-            policy,
-            q_function,
-            q_func_kwargs,
+            n_states, n_actions, alpha, gamma, policy, q_function, q_func_kwargs,
         )
 
     def _next_value(self, next_state):
