@@ -91,7 +91,7 @@ author = "Mateus Mota"
 # the built documents.
 #
 # The full version, including alpha/beta/rc tags.
-version = release = "0.1.0"
+version = release = "0.1.1"
 
 # The master toctree document.
 master_doc = "index"
